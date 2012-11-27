@@ -14,6 +14,7 @@
 	<context-param>
 		<param-name>patchConfigLocation</param-name>
 		<param-value>
+		    classpath:/bl-credit-account-applicationContext-persistence.xml
 		    classpath:/bl-open-admin-contentClient-applicationContext.xml
 		    classpath:/bl-cms-contentClient-applicationContext.xml
 		   	classpath:/applicationContext.xml
