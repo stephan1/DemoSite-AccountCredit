@@ -44,12 +44,27 @@ $(function(){
         $('#paymentOptions dd').css({display:"none"});
         $(this).closest('dt').next().css({display:"block"});
         $('#billing_info_form').css({display:"block"});
+        $('#giftCard_info').css({display:"none"});
     });
 
     $('body').on('click', 'input#paymentMethod_paypal', function() {
         $('#paymentOptions dd').css({display:"none"});
         $(this).closest('dt').next().css({display:"block"});
         $('#billing_info_form').css({display:"none"});
+        $('#giftCard_info').css({display:"none"});
+    });
+
+    $('body').on('click', 'input#paymentMethod_giftcard', function() {
+        $('#paymentOptions dd').css({display:"none"});
+        $(this).closest('dt').next().css({display:"block"});
+        $('#billing_info_form').css({display:"none"});
+        $('#giftCard_info').css({display:"inline-block"});
+    });
+
+    $(function(){
+        if ($('#giftCard_payment_type').text()) {
+            $('input#paymentMethod_giftcard').click();
+        }
     });
 
     /* Copy Shipping Form to Billing Form Checkbox */

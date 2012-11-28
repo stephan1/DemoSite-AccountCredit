@@ -1156,7 +1156,11 @@ form.manage-account input[type="submit"] {
     border: 1px solid #E5E5E5;
 }
 
-ul#payment_methods,
+ul#payment_methods {
+    width: 270px;
+    margin: 0;
+    padding: 0;
+}
 ul#payment_methods li {
       margin: 0;
       padding: 0;
@@ -1185,7 +1189,21 @@ ul#payment_methods li {
 #paymentOptions dd {
     margin: 5px;
 }
-	
+
+.giftCardDivs {
+    float: left;
+    width: 250px;
+    padding-right: 20px;
+}
+    .giftCardDivs label {
+        width: 100%;
+    }
+
+#giftCard_info {
+    width: 540px;
+    padding-left: 40px;
+}
+
 #multiship-products {
 	width: 720px;
 }

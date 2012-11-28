@@ -1,0 +1,29 @@
+<blc:form th:object="${giftCardInfoForm}" th:action="@{/checkout/complete-giftCard}" method="post" id="giftCard_info" th:if="${validOrderInfo and validShipping}">
+    <div id="giftcardfields">
+        <span class="error" th:if="${#fields.hasErrors('giftCardNumber')}" th:errors="*{giftCardNumber}"></span>
+        <br th:if="${#fields.hasErrors('giftCardNumber')}"/>
+        <span class="error" th:if="${#fields.hasErrors('giftCardEmailAddress')}" th:errors="*{giftCardEmailAddress}"></span>
+        <br th:if="${#fields.hasErrors('giftCardEmailAddress')}"/>
+
+        <div class="giftCardDivs">
+            <div class="form25">
+                <label for="giftCardNumber" class="prompt"><span th:text="#{cart.giftCardNumber}">Gift Card Number</span></label>
+                <div class="form100">
+                    <input type="text" th:field="*{giftCardNumber}" id="giftCardNumber" class="field35" />
+                </div>
+            </div>
+        </div>
+        <div class="giftCardDivs">
+            <div class="form25">
+                <label for="giftCardEmailAddress" class="prompt"><span th:text="#{cart.emailAddress}">Gift Card Email</span></label>
+                <div class="form100">
+                    <input type="text" th:field="*{giftCardEmailAddress}" id="giftCardEmailAddress" class="field35" />
+                </div>
+            </div>
+        </div>
+
+        <div class="giftCardDivs">
+            <input type="submit" class="medium" th:value="#{cart.completOrder}" th:disabled="${!validShipping}" th:classappend="${validShipping}? 'red' : 'gray'"/>
+        </div>
+    </div>
+</blc:form>
