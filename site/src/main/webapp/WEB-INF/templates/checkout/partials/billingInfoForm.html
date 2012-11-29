@@ -80,7 +80,7 @@
             <!--Gift Card payment option-->
             <span id="giftCard_payment_type" style="display: none;" th:text="${giftcardCheckout}" />
             <dt>
-                <input type="radio" name="paymentMethod" value="giftcard" id="paymentMethod_giftcard" th:checked="${giftcardCheckout}"/>
+                <input type="radio" name="paymentMethod" value="gift_card" id="paymentMethod_giftcard" th:checked="${giftcardCheckout}"/>
                 <label for="paymentMethod_giftcard"><span th:text="#{cart.giftCard}">Gift Card</span></label>
             </dt>
         </dl>
