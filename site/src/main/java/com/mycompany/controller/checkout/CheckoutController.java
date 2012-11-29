@@ -115,6 +115,7 @@ public class CheckoutController extends BroadleafCheckoutController {
     public String completeSecureCreditCardCheckout(HttpServletRequest request, HttpServletResponse response, Model model,
 			@ModelAttribute("orderInfoForm") OrderInfoForm orderInfoForm,
             @ModelAttribute("shippingInfoForm") ShippingInfoForm shippingForm,
+            @ModelAttribute("giftCardInfoForm") GiftCardInfoForm giftCardInfoForm,
             @ModelAttribute("billingInfoForm") BillingInfoForm billingForm,
             BindingResult result) throws CheckoutException, PricingException, ServiceException {
         prepopulateCheckoutForms(CartState.getCart(), null, shippingForm, billingForm);
