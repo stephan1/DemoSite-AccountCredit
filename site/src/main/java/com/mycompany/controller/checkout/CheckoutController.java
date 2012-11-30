@@ -122,7 +122,7 @@ public class CheckoutController extends BroadleafCheckoutController {
         return super.completeSecureCreditCardCheckout(request, response, model, billingForm, result);
     }
 
-    @RequestMapping(value = "/complete-giftCard", method = RequestMethod.POST)
+    @RequestMapping(value = "/complete-giftcard", method = RequestMethod.POST)
     public String completeGiftCardCheckout(HttpServletRequest request, HttpServletResponse response, Model model,
            @ModelAttribute("orderInfoForm") OrderInfoForm orderInfoForm,
            @ModelAttribute("shippingInfoForm") ShippingInfoForm shippingForm,
@@ -130,16 +130,12 @@ public class CheckoutController extends BroadleafCheckoutController {
            @ModelAttribute("giftCardInfoForm") GiftCardInfoForm giftCardInfoForm,
            BindingResult result) throws CheckoutException, PricingException, ServiceException {
         prepopulateCheckoutForms(CartState.getCart(), null, shippingForm, billingForm);
-        giftCardInfoFormValidator.validate(giftCardInfoForm, result);
-        if(result.hasErrors()){
-            populateModelWithShippingReferenceData(request, model);
-            model.addAttribute("giftcardCheckout", "true");
-            return getCheckoutView();
-        }
-//        billingForm.setPaymentMethod("gift_card");
+        billingForm.setPaymentMethod("gift_card");
+        giftCardInfoForm.setPaymentMethod("gift_card");
+
+        return super.extensionsCheckout(request, response, model, giftCardInfoForm, result);
 //        return super.completeCheckout(request, response, model, billingForm, result);
-        //TODO process gift card checkout
-        return getCheckoutPageRedirect();
+//        return getCheckoutPageRedirect();
     }
 
     protected void prepopulateOrderInfoForm(Order cart, OrderInfoForm orderInfoForm) {
