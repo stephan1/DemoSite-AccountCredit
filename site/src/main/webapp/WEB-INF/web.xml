@@ -14,15 +14,16 @@
 	<context-param>
 		<param-name>patchConfigLocation</param-name>
 		<param-value>
-		    classpath:/bl-credit-account-applicationContext-persistence.xml
-		    classpath:/bl-open-admin-contentClient-applicationContext.xml
-		    classpath:/bl-cms-contentClient-applicationContext.xml
-		   	classpath:/applicationContext.xml
-		    /WEB-INF/applicationContext-datasource.xml
+            classpath:/bl-credit-account-applicationContext.xml
+            classpath:/bl-credit-account-applicationContext-persistence.xml
+            classpath:/bl-open-admin-contentClient-applicationContext.xml
+            classpath:/bl-cms-contentClient-applicationContext.xml
+            classpath:/applicationContext.xml
+            /WEB-INF/applicationContext-datasource.xml
   		    /WEB-INF/applicationContext-email.xml
 		    /WEB-INF/applicationContext-security.xml
             /WEB-INF/applicationContext-filter.xml
-            /WEB-INF/applicationContext.xml          
+            /WEB-INF/applicationContext.xml
         </param-value>
 	</context-param>
 
