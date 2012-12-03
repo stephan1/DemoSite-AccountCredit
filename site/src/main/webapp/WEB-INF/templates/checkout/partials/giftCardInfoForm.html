@@ -1,4 +1,4 @@
-<blc:form th:object="${giftCardInfoForm}" th:action="@{/checkout/complete-giftcard}" method="post" id="giftCard_info" th:if="${validOrderInfo and validShipping}">
+<blc:form th:object="${giftCardInfoForm}" th:action="@{/checkout/giftcard}" method="post" id="giftCard_info" th:if="${validOrderInfo and validShipping}">
     <div id="giftcardfields">
 
         <!--<br th:if="${#fields.hasErrors('giftCardNumber')}"/>-->
@@ -27,5 +27,7 @@
         <div class="giftCardDivs">
             <input type="submit" class="medium" th:value="#{cart.completOrder}" th:disabled="${!validShipping}" th:classappend="${validShipping}? 'red' : 'gray'"/>
         </div>
+
+
     </div>
 </blc:form>
