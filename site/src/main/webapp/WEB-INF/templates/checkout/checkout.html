@@ -117,10 +117,6 @@
 
         <dd>
             <div th:substituteby="checkout/partials/giftCardInfoForm" />
-
-            <div th:if="${validGiftCardAccount}" th:object="${giftCardAccount}">
-                <div blc:price="*{balance}"/>
-            </div>
         </dd>
 	</div>
 
