@@ -1,44 +1,48 @@
-<blc:form th:unless="${responseEvent}" th:object="${giftCardInfoForm}" th:action="@{/account/redeem}" method="post" id="giftCard_info">
-    <div id="giftcardfields">
+<div class="manage-account-form-wrapper">
 
-        <div class="giftCardDivs">
-            <div class="form25">
+    <h2><span th:text="#{account.giftCard.title}">Enter Gift Card:</span></h2>
+    <div th:unless="${validGiftCardNumber}" th:inline="text" >
+        <p><span class="error_long" style="width: auto;" th:text="#{account.giftCard.invalid.number}">Gift Card Number not found.</span></p>
+    </div>
+
+    <blc:form class="manage-account" th:unless="${responseEvent}" th:object="${giftCardInfoForm}" th:action="@{/account/redeem}" method="post" id="giftCard_info">
+        <div>
+            <div class="form50">
                 <label for="giftCardNumber" class="prompt"><span th:text="#{cart.giftCardNumber}">Gift Card Number</span></label>
                 <span class="error_long" th:if="${#fields.hasErrors('giftCardNumber')}" th:errors="*{giftCardNumber}"></span>
                 <div class="form100">
                     <input type="text" th:field="*{giftCardNumber}" id="giftCardNumber" class="field35" th:classappend="${#fields.hasErrors('giftCardNumber')}? 'fieldError'"/>
                 </div>
             </div>
-        </div>
-        <div class="giftCardDivs">
-            <div class="form25">
+            <div class="form50">
                 <label for="giftCardEmailAddress" class="prompt"><span th:text="#{cart.emailAddress}">Gift Card Email</span></label>
                 <span class="error" th:if="${#fields.hasErrors('giftCardEmailAddress')}" th:errors="*{giftCardEmailAddress}"></span>
                 <div class="form100">
                     <input type="text" th:field="*{giftCardEmailAddress}" id="giftCardEmailAddress" class="field35" th:classappend="${#fields.hasErrors('giftCardEmailAddress')}? 'fieldError'" />
                 </div>
             </div>
+
+            <div>
+                <input type="submit" class="medium red" th:value="#{cart.giftCard.apply}" />
+            </div>
         </div>
+    </blc:form>
 
-        <div class="giftCardDivs">
-            <input type="submit" class="medium red" th:value="#{cart.giftCard.apply}" />
+    <div th:if="${responseEvent}" th:object="${giftCardAccount}" th:inline="text" class="clearfix">
+        <div class="group giftcard-info-read-only">
+            <h3><span th:text="#{cart.giftCard}">Gift Card:</span></h3>
+            <table>
+                <th><span th:text="#{account.giftCard.number}">Number</span></th>
+                <th><span th:text="#{account.giftCard.balance}">Balance</span></th>
+                <th><span th:text="#{account.giftCard.status}">Status</span></th>
+                <tr>
+                    <td><span th:text="*{giftCardNumber}"/> </td>
+                    <td><div blc:price="*{balance}"/></td>
+                    <td><div th:text="${responseEvent.reasonDesc}"/></td>
+                </tr>
+            </table>
         </div>
-
     </div>
-</blc:form>
 
-<div th:if="${responseEvent}" th:object="${giftCardAccount}" th:inline="text" class="clearfix">
-    <div class="group giftcard-info-read-only">
-        <h3><span th:text="#{cart.giftCard}">Gift Card:</span></h3>
-        <table>
-            <th><span th:text="#{account.giftCard.number}">Number</span></th>
-            <th><span th:text="#{account.giftCard.balance}">Balance</span></th>
-            <th><span th:text="#{account.giftCard.status}">Status</span></th>
-            <tr>
-                <td><span th:text="*{giftCardNumber}"/> </td>
-                <td><div blc:price="*{balance}"/></td>
-                <td><div th:text="${responseEvent.reasonDesc}"/></td>
-            </tr>
-        </table>
-    </div>
+
 </div>
