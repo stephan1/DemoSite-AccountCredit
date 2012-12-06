@@ -653,7 +653,7 @@ form.manage-account input[type="submit"] {
 }
 
 /* Manage Account / Order History / Redeem Giftcard */
-#order-history, #redeem-giftcard {
+#order-history, #redeem-giftcard, #account-credit {
     float: left;
     list-style: none;
     margin: 0;
@@ -706,9 +706,40 @@ form.manage-account input[type="submit"] {
     width: 100px;
 }
 
+/* Manage Account -> Account Credit */
 
+#account-credit .account-credit-info-row {
+    padding: 8px 0;
+}
 
+#account-credit > li:nth-child(2n) div.account-credit-info-row {
+    background-color: #eae3dd;
+}
 
+#account-credit > li:first-child {
+    font-weight: bold;
+    padding-bottom: 4px;
+}
+
+#account-credit > li {
+    border-bottom: 1px solid #C8C3C1;
+    padding: 0;
+}
+
+#account-credit > li span {
+    display: inline-block;
+}
+
+#account-credit > li .account-number {
+    padding-left: 6px;
+    width: 160px;
+}
+
+#account-credit > li .balance {
+    width: 120px;
+}
+
+/* Manage Account -> Redeem Giftcard */
 
 #redeem-giftcard .giftcard-info-row {
     padding: 8px 0;

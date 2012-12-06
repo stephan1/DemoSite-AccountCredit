@@ -1,3 +1,36 @@
-I am your credit.
+<!--I am your credit.-->
 
-<h3><div blc:price="${balance}"></div> </h3>
+<!--<h3><div blc:price="${balance}"></div> </h3>-->
+
+
+
+<!--<ul id="redeem-giftcard">-->
+    <!--<li>-->
+        <!--<span class="giftcard-number" th:text="#{account.giftCard.giftcard.number}">Gift Card Number</span>-->
+        <!--<span class="submit-date" th:text="#{account.giftCard.date}">Date</span>-->
+        <!--<span class="status" th:text="#{account.giftCard.status}">Status</span>-->
+        <!--<span class="balance" th:text="#{account.giftCard.balance}">Remaining Balance</span>-->
+    <!--</li>-->
+    <!--<li class="giftcard">-->
+        <!--<div class="giftcard-info-row">-->
+            <!--<span class="giftcard-number" th:text="*{giftCardNumber}"/>-->
+            <!--<span class="submit-date" th:text="${#dates.format(responseEvent.eventDate, 'MM-dd-yyyy')}"></span>-->
+            <!--<span class="status" th:text="${responseEvent.reasonDesc}">Pending</span>-->
+            <!--<span class="balance" blc:price="*{balance}"></span>-->
+        <!--</div>-->
+    <!--</li>-->
+<!--</ul>-->
+
+<h3>Accounts</h3>
+<ul id="account-credit" th:unless="${#lists.isEmpty(accounts)}" th:inline="text" class="clearfix">
+    <li>
+        <span class="account-number">Account Number</span>
+        <span class="balance">Balance</span>
+    </li>
+    <li class="credit" th:each="account : ${accounts}" th:object="${account}">
+        <div class="account-credit-info-row">
+            <span class="account-number" th:text="*{id}"></span>
+            <span class="balance" blc:price="*{balance}"></span>
+        </div>
+    </li>
+</ul>
