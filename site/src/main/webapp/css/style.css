@@ -652,8 +652,8 @@ form.manage-account input[type="submit"] {
     margin-top: 25px;
 }
 
-/* Manage Account / Order History */
-#order-history {
+/* Manage Account / Order History / Redeem Giftcard */
+#order-history, #redeem-giftcard {
     float: left;
     list-style: none;
     margin: 0;
@@ -705,6 +705,50 @@ form.manage-account input[type="submit"] {
 #order-history > li .total {
     width: 100px;
 }
+
+
+
+
+
+#redeem-giftcard .giftcard-info-row {
+    padding: 8px 0;
+}
+
+#redeem-giftcard > li:nth-child(2n) div.giftcard-info-row {
+    background-color: #eae3dd;
+}
+
+#redeem-giftcard > li:first-child {
+    font-weight: bold;
+    padding-bottom: 4px;
+}
+
+#redeem-giftcard > li {
+    border-bottom: 1px solid #C8C3C1;
+    padding: 0;
+}
+
+#redeem-giftcard > li span {
+    display: inline-block;
+}
+
+#redeem-giftcard > li .giftcard-number {
+    padding-left: 6px;
+    width: 160px;
+}
+
+#redeem-giftcard > li .submit-date {
+    width: 120px;
+}
+
+#redeem-giftcard > li .status {
+    width: 120px;
+}
+
+#redeem-giftcard > li .balance {
+    width: 120px;
+}
+
 
 /* Manage Account -> Order History -> Order Details */
 #order-history .order-details {
