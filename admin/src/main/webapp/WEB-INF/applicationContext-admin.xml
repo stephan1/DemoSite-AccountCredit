@@ -66,11 +66,10 @@
           class="org.broadleafcommerce.common.util.BLResourceBundleMessageSource">
         <constructor-arg>
             <list>
-                <value>messages</value>
+                <value>messages-admin</value>
             </list>
         </constructor-arg>
         <constructor-arg ref="resourceBundleExtensionPoint" />
-        <property name="basename" value="messages" />
     </bean>
 
 </beans>
