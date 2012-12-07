@@ -57,8 +57,7 @@ public class CheckoutController extends BroadleafCheckoutController {
 	public String checkout(HttpServletRequest request, HttpServletResponse response, Model model,
 			@ModelAttribute("orderInfoForm") OrderInfoForm orderInfoForm,
 	    	@ModelAttribute("shippingInfoForm") ShippingInfoForm shippingForm,
-	        @ModelAttribute("billingInfoForm") BillingInfoForm billingForm,
-            @ModelAttribute("giftCardInfoForm") GiftCardInfoForm giftCardInfoForm, RedirectAttributes redirectAttributes) {
+	        @ModelAttribute("billingInfoForm") BillingInfoForm billingForm, RedirectAttributes redirectAttributes) {
         prepopulateCheckoutForms(CartState.getCart(), orderInfoForm, shippingForm, billingForm);
         return super.checkout(request, response, model, redirectAttributes);
 	}
@@ -81,7 +80,6 @@ public class CheckoutController extends BroadleafCheckoutController {
             @ModelAttribute("shippingInfoForm") ShippingInfoForm shippingForm, 
             BindingResult result) throws PricingException, ServiceException {
     	prepopulateOrderInfoForm(CartState.getCart(), orderInfoForm);
-        model.addAttribute("validGiftCardAccount", false);
         return super.saveSingleShip(request, response, model, shippingForm, result);
     }
 
