@@ -25,7 +25,6 @@ import org.broadleafcommerce.core.payment.domain.PaymentInfo;
 import org.broadleafcommerce.core.payment.service.type.PaymentInfoType;
 import org.broadleafcommerce.core.pricing.service.exception.PricingException;
 import org.broadleafcommerce.core.web.checkout.model.*;
-import org.broadleafcommerce.core.web.service.GiftCardCheckoutService;
 import org.broadleafcommerce.core.web.controller.checkout.BroadleafCheckoutController;
 import org.broadleafcommerce.core.web.order.CartState;
 import org.broadleafcommerce.profile.core.domain.CustomerAddress;
@@ -40,7 +39,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
@@ -48,9 +46,6 @@ import java.util.List;
 @Controller
 @RequestMapping("/checkout")
 public class CheckoutController extends BroadleafCheckoutController {
-
-    @Resource(name = "blGiftCardCheckoutService")
-    GiftCardCheckoutService giftCardCheckoutService;
 
     /*
     * The Checkout page for Heat Clinic will have the shipping information pre-populated 
@@ -120,35 +115,10 @@ public class CheckoutController extends BroadleafCheckoutController {
     public String completeSecureCreditCardCheckout(HttpServletRequest request, HttpServletResponse response, Model model,
 			@ModelAttribute("orderInfoForm") OrderInfoForm orderInfoForm,
             @ModelAttribute("shippingInfoForm") ShippingInfoForm shippingForm,
-            @ModelAttribute("giftCardInfoForm") GiftCardInfoForm giftCardInfoForm,
             @ModelAttribute("billingInfoForm") BillingInfoForm billingForm,
             BindingResult result) throws CheckoutException, PricingException, ServiceException {
         prepopulateCheckoutForms(CartState.getCart(), null, shippingForm, billingForm);
         return super.completeSecureCreditCardCheckout(request, response, model, billingForm, result);
-    }
-
-    @RequestMapping(value = "/complete", method = RequestMethod.GET)
-    public String completeGiftCardCheckout(HttpServletRequest request, HttpServletResponse response, Model model,
-                                                   @ModelAttribute("orderInfoForm") OrderInfoForm orderInfoForm,
-                                                   @ModelAttribute("shippingInfoForm") ShippingInfoForm shippingForm,
-                                                   @ModelAttribute("billingInfoForm") BillingInfoForm billingForm,
-                                                   @ModelAttribute("giftCardInfoForm") GiftCardInfoForm giftCardInfoForm,
-                                                   BindingResult result) throws CheckoutException, PricingException, ServiceException {
-        prepopulateCheckoutForms(CartState.getCart(), null, shippingForm, billingForm);
-        giftCardInfoForm.setPaymentMethod("gift_card");
-        return super.completeCheckout(request, response, model, giftCardInfoForm, result);
-    }
-
-    @RequestMapping(value = "/giftcard", method = RequestMethod.POST)
-    public String applyGiftCards(HttpServletRequest request, HttpServletResponse response, Model model,
-                                    @ModelAttribute("orderInfoForm") OrderInfoForm orderInfoForm,
-                                    @ModelAttribute("shippingInfoForm") ShippingInfoForm shippingForm,
-                                    @ModelAttribute("billingInfoForm") BillingInfoForm billingForm,
-                                    @ModelAttribute("giftCardInfoForm") GiftCardInfoForm giftCardInfoForm,
-                                    BindingResult result) throws CheckoutException, PricingException, ServiceException {
-        prepopulateCheckoutForms(CartState.getCart(), orderInfoForm, shippingForm, billingForm);
-        populateModelWithShippingReferenceData(request, model);
-        return giftCardCheckoutService.applyGiftCards(model, giftCardInfoForm, result);
     }
 
     protected void prepopulateOrderInfoForm(Order cart, OrderInfoForm orderInfoForm) {

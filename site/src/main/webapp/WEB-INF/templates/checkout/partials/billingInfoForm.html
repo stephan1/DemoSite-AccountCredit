@@ -8,7 +8,6 @@
             <li><img th:src="@{/img/payment/mastercard-curved-32px.png}"/></li>
             <li><img th:src="@{/img/payment/visa-curved-32px.png}"/></li>
             <li><img th:src="@{/img/payment/paypal-curved-32px.png}"/></li>
-            <li><img th:src="@{/img/payment/giftcard-curved-32px.png}"/></li>
         </ul>
 
         <dl id="paymentOptions">
@@ -77,12 +76,6 @@
                     </div>
                 </div>
             </dd>
-            <!--Gift Card payment option-->
-            <span id="giftCard_payment_type" style="display: none;" th:text="${giftcardCheckout}" />
-            <dt>
-                <input type="radio" name="paymentMethod" value="gift_card" id="paymentMethod_giftcard" th:checked="${giftcardCheckout}"/>
-                <label for="paymentMethod_giftcard"><span th:text="#{cart.giftCard}">Gift Card</span></label>
-            </dt>
         </dl>
     </div>
 
