@@ -5,7 +5,7 @@
         <p><span class="error_long" style="width: auto; margin: 20px 10px;" th:text="#{account.giftCard.invalid.number}">Gift Card Number not found.</span></p>
     </div>
 
-    <blc:form class="manage-account" th:object="${giftCardInfoForm}" th:action="@{/account/redeem}" method="post" id="redeem_giftCard_info">
+    <blc:form class="manage-account" th:object="${giftCardInfoForm}" th:action="@{/account/giftcard/redeem}" method="post" id="redeem_giftCard_info">
         <div>
             <div class="form50">
                 <label for="giftCardNumber" class="prompt"><span th:text="#{cart.giftCardNumber}">Gift Card Number</span></label>

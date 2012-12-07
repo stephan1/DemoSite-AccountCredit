@@ -32,18 +32,18 @@ import javax.servlet.http.HttpServletResponse;
  * @author Jerry Ocanas (jocanas)
  */
 @Controller
-@RequestMapping(value = "/account/redeem")
+@RequestMapping(value = "/account/giftcard")
 public class ManageGiftCardController extends BroadleafManageGiftCardController{
 
     @Override
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/redeem", method = RequestMethod.GET)
     public String viewRedeemGiftCard(HttpServletRequest request, HttpServletResponse response, Model model,
              @ModelAttribute("giftCardInfoForm") GiftCardInfoForm giftCardInfoForm, BindingResult result) {
         return super.viewRedeemGiftCard(request, response, model, giftCardInfoForm, result);
     }
 
     @Override
-    @RequestMapping(method = RequestMethod.POST)
+    @RequestMapping(value = "/redeem", method = RequestMethod.POST)
     public String redeemGiftCard(HttpServletRequest request, HttpServletResponse response, Model model,
              @ModelAttribute("giftCardInfoForm") GiftCardInfoForm giftCardInfoForm, BindingResult result) {
         return super.redeemGiftCard(request, response, model, giftCardInfoForm, result);
