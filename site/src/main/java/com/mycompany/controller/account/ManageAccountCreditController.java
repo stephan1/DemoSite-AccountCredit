@@ -36,4 +36,10 @@ public class ManageAccountCreditController extends BroadleafManageAccountCreditC
     public String viewAccountCredit(HttpServletRequest request, HttpServletResponse response, Model model) {
         return super.viewAccountCredit(request, response, model);
     }
+
+    @Override
+    @RequestMapping(value = "/checkout", method = RequestMethod.GET)
+    public String viewAccountCreditCheckout(HttpServletRequest request, HttpServletResponse response, Model model) {
+        return super.viewAccountCreditCheckout(request, response, model);
+    }
 }

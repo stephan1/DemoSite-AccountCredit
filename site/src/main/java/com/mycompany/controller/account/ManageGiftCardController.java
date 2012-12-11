@@ -24,9 +24,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author Jerry Ocanas (jocanas)
@@ -48,4 +51,30 @@ public class ManageGiftCardController extends BroadleafManageGiftCardController{
              @ModelAttribute("giftCardInfoForm") GiftCardInfoForm giftCardInfoForm, BindingResult result) {
         return super.redeemGiftCard(request, response, model, giftCardInfoForm, result);
     }
+
+
+    @RequestMapping(value = "/apply", method = RequestMethod.POST, produces = "application/json")
+    public @ResponseBody Map<String, Object> applyGiftCardJson(HttpServletRequest request, HttpServletResponse response, Model model,
+            @ModelAttribute("giftCardInfoForm") GiftCardInfoForm giftCardInfoForm, BindingResult result) {
+        super.applyGiftCard(request, response, model, giftCardInfoForm, result);
+
+        Map<String, Object> responseMap = new HashMap<String, Object>();
+        responseMap.put("validGiftCardNumber", false);
+
+        return responseMap;
+
+    }
+
+    @RequestMapping(value = "/checkout", method = RequestMethod.GET)
+    public String viewGiftCardCheckout(HttpServletRequest request, HttpServletResponse response, Model model,
+              @ModelAttribute("giftCardInfoForm") GiftCardInfoForm giftCardInfoForm, BindingResult result){
+        return super.viewGiftCardCheckout(request, response, model, giftCardInfoForm, result);
+    }
+
+//    @Override
+//    @RequestMapping(value = "/apply", method = RequestMethod.POST, produces = "application/json")
+//    public String applyGiftCard(HttpServletRequest request, HttpServletResponse response, Model model,
+//            @ModelAttribute("giftCardInfoForm") GiftCardInfoForm giftCardInfoForm, BindingResult result) {
+//        return super.applyGiftCard(request, response, model, giftCardInfoForm, result);
+//    }
 }

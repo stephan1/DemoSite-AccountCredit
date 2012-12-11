@@ -1,0 +1,16 @@
+<div id="credit_section">
+    <h2>Accounts</h2>
+    <ul id="account-credit" th:unless="${#lists.isEmpty(accounts)}" th:inline="text" class="clearfix">
+        <li>
+            <span class="account-number">Account Number</span>
+            <span class="balance">Balance</span>
+        </li>
+        <li class="credit" th:each="account : ${accounts}" th:object="${account}">
+            <div class="account-credit-info-row">
+                <span class="account-number" th:text="*{id}"></span>
+                <span class="balance" blc:price="*{balance}"></span>
+            </div>
+        </li>
+    </ul>
+</div>
+

@@ -44,27 +44,12 @@ $(function(){
         $('#paymentOptions dd').css({display:"none"});
         $(this).closest('dt').next().css({display:"block"});
         $('#billing_info_form').css({display:"block"});
-        $('#giftCard_section').css({display:"none"});
     });
 
     $('body').on('click', 'input#paymentMethod_paypal', function() {
         $('#paymentOptions dd').css({display:"none"});
         $(this).closest('dt').next().css({display:"block"});
         $('#billing_info_form').css({display:"none"});
-        $('#giftCard_section').css({display:"none"});
-    });
-
-    $('body').on('click', 'input#paymentMethod_giftcard', function() {
-        $('#paymentOptions dd').css({display:"none"});
-        $(this).closest('dt').next().css({display:"block"});
-        $('#billing_info_form').css({display:"none"});
-        $('#giftCard_section').css({display:"inline-block"});
-    });
-
-    $(function(){
-        if ($('#giftCard_payment_type').text()) {
-            $('input#paymentMethod_giftcard').click();
-        }
     });
 
     /* Copy Shipping Form to Billing Form Checkbox */
@@ -79,6 +64,31 @@ $(function(){
     /* Submit Shipping Form when radio button is checked */
     $('body').on('click', '#select_shipping', function() {
         $('#shipping_info').submit();
+//        $('#giftCard_area').ready(function(){
+//            debugger;
+//            BLC.ajax({
+//                    url: 'account/giftcard/checkout',
+//                    type: "GET",
+//                    cache: false
+//                }, function(data){
+//                    $('#giftCard_area').html(data);
+//                    alert(data);
+//                }
+//            );
+//            return false;
+//        });
+//        $(function(){
+//            debugger;
+//            BLC.ajax({  url: 'account/giftcard/checkout',
+//                    type: "GET",
+//                    cache: false
+//                }, function(data){
+//                    $('#giftCard_area').html(data);
+//                    alert(data);
+//                }
+//            );
+//            return false;
+//        });
     });
 
     /* Show or Edit multiship options link was clicked */
@@ -128,4 +138,48 @@ $(function(){
 		);
 		return false;
 	});
+
+    /* Load account credit form */
+    $('#credit_area').ready(function(){
+        BLC.ajax({
+                url: 'account/credit/checkout',
+                type: "GET",
+                cache: false
+            }, function(data){
+                $('#credit_area').html(data);
+            }
+        );
+        return false;
+    });
+
+    /* Load gift card form */
+    $('#giftCard_area').ready(function(){
+        BLC.ajax({
+                url: 'account/giftcard/checkout',
+                type: "GET",
+                cache: false
+            }, function(data){
+                $('#giftCard_area').html(data);
+            }
+        );
+        return false;
+    });
+
+
+    /* Apply pressed on apply giftcard */
+    $('body').on('click', '#giftCard_section input.apply', function() {
+        var $form = $(this).closest('form');
+
+        BLC.ajax({url: $form.attr('action'),
+                type: "POST",
+                data: $form.serialize(),
+                cache: false
+            }, function(data) {
+//                $('#giftCard_section').load('checkout/partials/giftCardInfoForm.html');
+//                alert("Data Loaded: " + data);
+                alert("Data Loaded: " + data.validGiftCardNumber);
+            }
+        );
+        return false;
+    });
 });
