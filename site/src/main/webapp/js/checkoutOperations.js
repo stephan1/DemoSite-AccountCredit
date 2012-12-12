@@ -165,7 +165,6 @@ $(function(){
         return false;
     });
 
-
     /* Apply pressed on apply giftcard */
     $('body').on('click', '#giftCard_section input.apply', function() {
         var $form = $(this).closest('form');
@@ -175,11 +174,10 @@ $(function(){
                 data: $form.serialize(),
                 cache: false
             }, function(data) {
-//                $('#giftCard_section').load('checkout/partials/giftCardInfoForm.html');
-//                alert("Data Loaded: " + data);
-                alert("Data Loaded: " + data.validGiftCardNumber);
+                $('#giftCard_area').html(data);
             }
         );
         return false;
     });
+
 });
