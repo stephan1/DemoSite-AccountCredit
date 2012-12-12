@@ -1,4 +1,4 @@
-<div id="giftCard_section"  th:unless="${responseEvent}" class="manage-account-form-wrapper">
+<div id="giftCard_section"  class="manage-account-form-wrapper">
 
     <h2><span th:text="#{account.giftCard.title}">Enter Gift Card:</span></h2>
     <div th:unless="${validGiftCardNumber}" th:inline="text" >
@@ -27,52 +27,25 @@
             </div>
         </div>
     </blc:form>
+
+    <div id="gift-card-display" th:if="${validGiftCardAccount}" th:object="${giftCardAccount}" th:inline="text" class="clearfix">
+        <!--<h2><span th:text="#{account.giftCard.title}">Enter Gift Card:</span></h2>-->
+        <h2>Applied Gift Cards</h2>
+        <ul id="redeem-giftcard">
+            <li>
+                <span class="giftcard-number" th:text="#{account.giftCard.giftcard.number}">Gift Card Number</span>
+                <span class="balance" th:text="#{account.giftCard.balance}">Remaining Balance</span>
+            </li>
+            <li class="giftcard">
+                <div class="giftcard-info-row clearfix">
+                    <span class="giftcard-number" th:text="*{giftCardNumber}"/>
+                    <span class="balance" blc:price="*{balance}"></span>
+                </div>
+            </li>
+        </ul>
+
+    </div>
 </div>
 
-<div th:if="${responseEvent}" th:object="${giftCardAccount}" th:inline="text" class="clearfix">
-    <ul id="redeem-giftcard">
-        <li>
-            <span class="giftcard-number" th:text="#{account.giftCard.giftcard.number}">Gift Card Number</span>
-            <span class="submit-date" th:text="#{account.giftCard.date}">Date</span>
-            <span class="status" th:text="#{account.giftCard.status}">Status</span>
-            <span class="balance" th:text="#{account.giftCard.balance}">Remaining Balance</span>
-        </li>
-        <li class="giftcard">
-            <div class="giftcard-info-row">
-                <span class="giftcard-number" th:text="*{giftCardNumber}"/>
-                <span class="submit-date" th:text="${#dates.format(responseEvent.eventDate, 'MM-dd-yyyy')}"></span>
-                <span class="status" th:text="${responseEvent.reasonDesc}">Pending</span>
-                <span class="balance" blc:price="*{balance}"></span>
-            </div>
-        </li>
-    </ul>
-</div>
 
 
-<div id="gift-card-display" th:if="${validGiftCardAccount}" th:object="${giftCardAccount}" th:inline="text" class="clearfix">
-    <!--<div class="group giftcard-info-read-only">-->
-        <!--<table>-->
-            <!--<th><span th:text="#{cart.giftCard.number}">Number</span></th>-->
-            <!--<th><span th:text="#{cart.giftCard.balance}">Balance</span></th>-->
-            <!--<tr>-->
-                <!--<td><span th:text="*{giftCardNumber}"/> </td>-->
-                <!--<td><div blc:price="*{balance}"/></td>-->
-            <!--</tr>-->
-        <!--</table>-->
-    <!--</div>-->
-
-
-    <ul id="redeem-giftcard">
-        <li>
-            <span class="giftcard-number" th:text="#{account.giftCard.giftcard.number}">Gift Card Number</span>
-            <span class="balance" th:text="#{account.giftCard.balance}">Remaining Balance</span>
-        </li>
-        <li class="giftcard">
-            <div class="giftcard-info-row">
-                <span class="giftcard-number" th:text="*{giftCardNumber}"/>
-                <span class="balance" blc:price="*{balance}"></span>
-            </div>
-        </li>
-    </ul>
-
-</div>

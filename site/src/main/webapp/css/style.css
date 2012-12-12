@@ -1290,9 +1290,19 @@ ul#payment_methods li {
 
 #giftCard_section {
     display: inline-block;
-    width: 300px;
+    width: 330px;
     float: left;
 }
+
+    #giftCard_section ul {
+        display: inline-block;
+        width: 330px;
+        float: left;
+    }
+
+    #giftCard_section form {
+        margin-left: 30px;
+    }
 
 #giftCard_info {
     width: 540px;
