@@ -119,7 +119,9 @@
 
         <div class="payment_method" th:each="paymentInfo : ${order.paymentInfos}" th:object="${paymentInfo}" th:inline="text">
             <div class="left_content">
-                <address>
+                Payment type: [[*{type.type}]]<br/>
+                Amount paid: <span blc:price="*{amount}" />
+                <address th:if="*{address}">
                     [[*{address.firstName}]]&nbsp;[[*{address.lastName}]]<br/>
                     [[*{address.primaryPhone}]]<br th:if="!*{#strings.isEmpty(address.primaryPhone)}"/>
                     [[*{address.addressLine1}]]<br/>
