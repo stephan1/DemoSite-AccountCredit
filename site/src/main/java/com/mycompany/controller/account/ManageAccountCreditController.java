@@ -16,9 +16,12 @@
 
 package com.mycompany.controller.account;
 
+import org.broadleafcommerce.core.web.checkout.model.CreditInfoForm;
 import org.broadleafcommerce.core.web.controller.BroadleafManageAccountCreditController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -39,7 +42,15 @@ public class ManageAccountCreditController extends BroadleafManageAccountCreditC
 
     @Override
     @RequestMapping(value = "/checkout", method = RequestMethod.GET)
-    public String viewAccountCreditCheckout(HttpServletRequest request, HttpServletResponse response, Model model) {
-        return super.viewAccountCreditCheckout(request, response, model);
+    public String viewAccountCreditCheckout(HttpServletRequest request, HttpServletResponse response, Model model,
+                @ModelAttribute("creditInfoForm")CreditInfoForm creditInfoForm, BindingResult result){
+        return super.viewAccountCreditCheckout(request, response, model, creditInfoForm, result);
+    }
+
+    @Override
+    @RequestMapping(value = "/checkout", method = RequestMethod.POST)
+    public String applyCredit(HttpServletRequest request, HttpServletResponse response, Model model,
+              @ModelAttribute("creditInfoForm") CreditInfoForm creditInfoForm, BindingResult result) {
+        return super.applyCredit(request, response, model, creditInfoForm, result);
     }
 }

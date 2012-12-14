@@ -1,0 +1,26 @@
+<div id="credit_section">
+    <h2>Accounts</h2>
+    <ul id="account-credit" th:unless="${#lists.isEmpty(accounts)}" th:inline="text" class="clearfix">
+        <li>
+            <span class="account-number">Account Number</span>
+            <span class="balance">Balance</span>
+        </li>
+    </ul>
+    <blc:form th:unless="${#lists.isEmpty(accounts)}" th:object="${creditInfoForm}" th:inline="text" th:action="@{/account/credit/checkout}" method="post" id="applyCredit_form">
+        <ul th:inline="text">
+            <li th:each="account : ${accounts}">
+                <input type="checkbox" th:value="${account.id}" th:field="*{accountNumbers}" />
+                <label th:for="${#ids.prev('accountNumbers')}">
+                    <span th:text="${account.id}"></span>
+                    <span class="balance" blc:price="${account.balance}"></span>
+                </label>
+            </li>
+        </ul>
+        <div>
+            <input type="submit" class="medium red apply" th:value="#{cart.giftCard.apply}" />
+        </div>
+    </blc:form>
+
+
+</div>
+

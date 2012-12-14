@@ -747,6 +747,34 @@ form.manage-account input[type="submit"] {
     width: 120px;
 }
 
+#credit_section ul {
+    list-style: none;
+    display: inline-block;
+    width: 350px;
+}
+
+#credit_section > li {
+    display: inline-block;
+}
+
+#credit_section input {
+    margin: 10px;
+}
+
+#credit_section label, #credit_section span {
+    display: inline-block;
+    float: none;
+}
+
+#applyCredit_form span.balance {
+   padding-left: 160px;
+}
+
+#credit_section span.account-number {
+    padding-left: 35px;
+}
+
+
 /* Manage Account -> Redeem Giftcard */
 
 #redeem-giftcard .giftcard-info-row {
