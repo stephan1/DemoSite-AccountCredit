@@ -62,10 +62,4 @@ public class ManageGiftCardController extends BroadleafManageGiftCardController{
         return super.viewGiftCardCheckout(request, response, model, giftCardInfoForm, result);
     }
 
-//    @Override
-//    @RequestMapping(value = "/apply", method = RequestMethod.POST, produces = "application/json")
-//    public String applyGiftCard(HttpServletRequest request, HttpServletResponse response, Model model,
-//            @ModelAttribute("giftCardInfoForm") GiftCardInfoForm giftCardInfoForm, BindingResult result) {
-//        return super.applyGiftCard(request, response, model, giftCardInfoForm, result);
-//    }
 }
