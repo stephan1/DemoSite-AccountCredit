@@ -1,5 +1,6 @@
 <div id="credit_section">
-    <h2>Accounts</h2>
+    <h2><span th:text="#{cart.accountCredit.accounts}">Accounts</span></h2>
+
     <ul id="account-credit" th:unless="${#lists.isEmpty(accounts)}" th:inline="text" class="clearfix">
         <li>
             <span class="account-number">Account Number</span>
@@ -22,7 +23,8 @@
     </blc:form>
 
     <div th:unless="${#lists.isEmpty(appliedAccounts)}" >
-        <h3>Accounts Applied</h3>
+        <h2><span th:text="#{cart.accountCredit.applied}">Accounts Applied</span></h2>
+
         <ul id="account-credit" th:inline="text" class="clearfix">
             <li>
                 <span class="account-number">Account Number</span>
