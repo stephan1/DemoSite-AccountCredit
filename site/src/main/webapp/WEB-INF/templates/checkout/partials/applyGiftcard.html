@@ -39,6 +39,7 @@
                 <div class="giftcard-info-row clearfix" th:each="account : ${accounts}" th:object="${account}">
                     <span class="giftcard-number" th:text="*{giftCardNumber}"/>
                     <span class="balance" blc:price="*{balance}"></span>
+                    <a class="remove_from_giftCard_checkout" th:href="@{/account/giftcard/remove(creditAccountId=*{giftCardNumber})}"><span th:text="#{cart.remove}">Remove</span></a>
                 </div>
             </li>
         </ul>

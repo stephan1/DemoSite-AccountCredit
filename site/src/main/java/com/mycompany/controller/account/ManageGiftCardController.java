@@ -16,6 +16,7 @@
 
 package com.mycompany.controller.account;
 
+import org.broadleafcommerce.core.web.checkout.model.CreditAccountRequestDTO;
 import org.broadleafcommerce.core.web.checkout.model.GiftCardInfoForm;
 import org.broadleafcommerce.core.web.controller.BroadleafManageGiftCardController;
 import org.springframework.stereotype.Controller;
@@ -33,7 +34,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 @RequestMapping(value = "/account/giftcard")
-public class ManageGiftCardController extends BroadleafManageGiftCardController{
+public class ManageGiftCardController extends BroadleafManageGiftCardController {
 
     @Override
     @RequestMapping(value = "/redeem", method = RequestMethod.GET)
@@ -62,4 +63,11 @@ public class ManageGiftCardController extends BroadleafManageGiftCardController{
         return super.viewGiftCardCheckout(request, response, model, giftCardInfoForm, result);
     }
 
+    @Override
+    @RequestMapping(value = "/remove", method = RequestMethod.GET)
+    public String removeGiftCard(HttpServletRequest request, HttpServletResponse response, Model model,
+             @ModelAttribute("creditAccountRequestDTO") CreditAccountRequestDTO creditAccountRequestDTO,
+             @ModelAttribute("giftCardInfoForm") GiftCardInfoForm giftCardInfoForm, BindingResult result) {
+        return super.removeGiftCard(request, response, model, creditAccountRequestDTO, giftCardInfoForm, result);
+    }
 }

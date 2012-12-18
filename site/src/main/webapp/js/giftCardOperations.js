@@ -19,7 +19,7 @@ $(function(){
         return false;
     });
 
-    /* Apply pressed on apply giftcard */
+    /* Apply pressed on apply gift card */
     $('body').on('click', '#giftCard_section input.apply', function() {
         var $form = $(this).closest('form');
 
@@ -27,6 +27,20 @@ $(function(){
                 type: "POST",
                 data: $form.serialize(),
                 cache: false
+            }, function(data) {
+                $('#giftCard_area').html(data);
+            }
+        );
+        return false;
+    });
+
+    /* Remove pressed on apply gift card */
+    $('body').on('click', '#giftCard_section a.remove_from_giftCard_checkout', function() {
+        var link = this;
+        debugger;
+
+        BLC.ajax({url: $(link).attr('href'),
+                type: "GET"
             }, function(data) {
                 $('#giftCard_area').html(data);
             }

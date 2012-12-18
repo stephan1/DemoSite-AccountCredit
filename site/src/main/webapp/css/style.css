@@ -652,7 +652,7 @@ form.manage-account input[type="submit"] {
     margin-top: 25px;
 }
 
-/* Manage Account / Order History / Redeem Giftcard */
+/* Manage Account / Order History / Redeem Gift Card */
 #order-history, #redeem-giftcard {
     float: left;
     list-style: none;
@@ -775,7 +775,7 @@ form.manage-account input[type="submit"] {
 }
 
 
-/* Manage Account -> Redeem Giftcard */
+/* Manage Account -> Redeem Gift Card */
 
 #redeem-giftcard .giftcard-info-row {
     padding: 8px 0;
@@ -813,7 +813,7 @@ form.manage-account input[type="submit"] {
 }
 
 #redeem-giftcard > li .balance {
-    width: 120px;
+    width: 80px;
 }
 
 
@@ -1061,7 +1061,7 @@ form.manage-account input[type="submit"] {
 		min-width: 140px;
 	}
 	
-#checkout_content .shipping-info-read-only, #checkout_content .order-info, #checkout_content .giftcard-info-read-only {float: left; margin-right: 10px; padding: 10px 20px; width: 260px; background: url('../img/sidebarbg.jpg') repeat;}
+#checkout_content .shipping-info-read-only, #checkout_content .order-info {float: left; margin-right: 10px; padding: 10px 20px; width: 260px; background: url('../img/sidebarbg.jpg') repeat;}
 #checkout_content #cart_total {display: none;}
 #checkout_content #cart_total, #checkout_content .shipping-info-read-only {height: 150px;}
 
@@ -1074,10 +1074,6 @@ form.manage-account input[type="submit"] {
 
 #checkout_content .order-info.edit-order-info { width: 282px;}
 #checkout_content .order-info.edit-order-info .submit-row { margin-left: -5px; padding-top: 10px; }
-#checkout_content .giftcard-info-read-only {
-    height: auto;
-    margin-left: 10px;
-}
 
 #wishlist_items {
     width: 580px;
