@@ -140,7 +140,7 @@
 	-->
 
     <!--Rollback Handlers-->
-    <bean id="blAccountCreditRollbackHandler" class="org.broadleafcommerce.core.workflow.state.GiftCardRollbackHandler"/>
+    <bean id="blAccountCreditRollbackHandler" class="org.broadleafcommerce.core.workflow.state.AccountCreditRollbackHandler"/>
     <bean id="blGiftCardRollbackHandler" class="org.broadleafcommerce.core.workflow.state.GiftCardRollbackHandler"/>
 
     <!-- Override the default Authorize and Debit Workflow-->
@@ -157,11 +157,6 @@
                     <property name="userName" value="web"/>
                     <property name="rollbackHandler" ref="blAccountCreditRollbackHandler" />
                 </bean>
-                <!--<bean class="org.broadleafcommerce.core.payment.service.workflow.PaymentActivity">-->
-                    <!--<property name="paymentService" ref="blCustomerCreditPaymentService"/>-->
-                    <!--<property name="userName" value="web"/>-->
-                    <!--<property name="rollbackHandler" ref="blCreditAccountRollbackHandler" />-->
-                <!--</bean>-->
                 <bean class="org.broadleafcommerce.core.payment.service.workflow.PaymentActivity">
                     <property name="paymentService" ref="blAccountPaymentService"/>
                     <property name="userName" value="web"/>
