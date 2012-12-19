@@ -155,7 +155,6 @@
                 <bean class="org.broadleafcommerce.core.payment.service.workflow.PaymentActivity">
                     <property name="paymentService" ref="blAccountCreditPaymentService"/>
                     <property name="userName" value="web"/>
-                    <property name="rollbackHandler" ref="blAccountCreditRollbackHandler" />
                 </bean>
                 <bean class="org.broadleafcommerce.core.payment.service.workflow.PaymentActivity">
                     <property name="paymentService" ref="blAccountPaymentService"/>
@@ -169,6 +168,7 @@
                 <bean class="org.broadleafcommerce.core.payment.service.workflow.PaymentActivity">
                     <property name="paymentService" ref="blAccountCreditService"/>
                     <property name="userName" value="web"/>
+                    <property name="rollbackHandler" ref="blAccountCreditRollbackHandler" />
                 </bean>
                 <bean class="org.broadleafcommerce.core.payment.service.workflow.PaymentActivity">
                     <property name="paymentService" ref="blCreditCardService"/>
