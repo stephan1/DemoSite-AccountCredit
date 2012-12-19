@@ -139,6 +139,10 @@
 	</bean>
 	-->
 
+    <!--Rollback Handlers-->
+    <bean id="blAccountCreditRollbackHandler" class="org.broadleafcommerce.core.workflow.state.GiftCardRollbackHandler"/>
+    <bean id="blGiftCardRollbackHandler" class="org.broadleafcommerce.core.workflow.state.GiftCardRollbackHandler"/>
+
     <!-- Override the default Authorize and Debit Workflow-->
     <bean id="blAuthorizeAndDebitWorkflow" class="org.broadleafcommerce.core.workflow.SequenceProcessor">
         <property name="processContextFactory">
@@ -151,11 +155,13 @@
                 <bean class="org.broadleafcommerce.core.payment.service.workflow.PaymentActivity">
                     <property name="paymentService" ref="blAccountCreditPaymentService"/>
                     <property name="userName" value="web"/>
+                    <property name="rollbackHandler" ref="blAccountCreditRollbackHandler" />
                 </bean>
-                <bean class="org.broadleafcommerce.core.payment.service.workflow.PaymentActivity">
-                    <property name="paymentService" ref="blCustomerCreditPaymentService"/>
-                    <property name="userName" value="web"/>
-                </bean>
+                <!--<bean class="org.broadleafcommerce.core.payment.service.workflow.PaymentActivity">-->
+                    <!--<property name="paymentService" ref="blCustomerCreditPaymentService"/>-->
+                    <!--<property name="userName" value="web"/>-->
+                    <!--<property name="rollbackHandler" ref="blCreditAccountRollbackHandler" />-->
+                <!--</bean>-->
                 <bean class="org.broadleafcommerce.core.payment.service.workflow.PaymentActivity">
                     <property name="paymentService" ref="blAccountPaymentService"/>
                     <property name="userName" value="web"/>
@@ -163,6 +169,7 @@
                 <bean class="org.broadleafcommerce.core.payment.service.workflow.PaymentActivity">
                     <property name="paymentService" ref="blGiftCardService"/>
                     <property name="userName" value="web"/>
+                    <property name="rollbackHandler" ref="blGiftCardRollbackHandler" />
                 </bean>
                 <bean class="org.broadleafcommerce.core.payment.service.workflow.PaymentActivity">
                     <property name="paymentService" ref="blAccountCreditService"/>
