@@ -17,7 +17,7 @@
 package com.mycompany.controller.account;
 
 import org.broadleafcommerce.core.web.checkout.model.CreditInfoForm;
-import org.broadleafcommerce.core.web.controller.BroadleafManageAccountCreditController;
+import org.broadleafcommerce.core.web.controller.BroadleafManageCustomerCreditController;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -33,7 +33,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 @RequestMapping(value = "/account/credit")
-public class ManageAccountCreditController extends BroadleafManageAccountCreditController {
+public class ManageCustomerCreditController extends BroadleafManageCustomerCreditController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String viewAccountCredit(HttpServletRequest request, HttpServletResponse response, Model model) {
