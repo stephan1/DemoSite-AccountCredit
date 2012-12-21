@@ -117,9 +117,18 @@
             <span th:text="#{cart.fillOutShippingAddress}">Please fill out a shipping address</span>
         </div>
 
+        <div class="checkout_warning" th:if="${paymentException}">
+            <span th:text="#{payment.exception.warning}">Problem processing payment.</span>
+            <a th:href="@{/checkout}">
+                <span th:text="#{payment.exception.review}">Please review your information.</span>
+            </a>
+        </div>
+
         <div class="checkout_warning" th:if="${paymentOptionException}">
             <span th:text="#{payment.option.exception}">Problem processing payment options.</span>
-            <a th:href="@{/checkout}">Resubmit Information</a>
+            <a th:href="@{/checkout}">
+                <span th:text="#{payment.exception.review}">Please review your information.</span>
+            </a>
         </div>
 
         <div id="credit_area" th:if="${validOrderInfo and validShipping}"/>
