@@ -10,9 +10,9 @@
     <blc:form th:unless="${#lists.isEmpty(accounts)}" th:object="${creditInfoForm}" th:inline="text" th:action="@{/account/credit/checkout}" method="post" id="applyCredit_form">
         <ul th:inline="text">
             <li th:each="account : ${accounts}">
-                <input type="checkbox" th:value="${account.id}" th:field="*{accountNumbers}" />
+                <input type="checkbox" th:value="${account.accountNumber}" th:field="*{accountNumbers}" />
                 <label th:for="${#ids.prev('accountNumbers')}">
-                    <span th:text="${account.id}"></span>
+                    <span th:text="${account.accountNumber}"></span>
                     <span class="balance" blc:price="${account.balance}"></span>
                 </label>
             </li>
@@ -32,7 +32,7 @@
             </li>
             <li class="credit" th:each="account : ${accounts}" th:object="${account}">
                 <div class="account-credit-info-row">
-                    <span class="account-number" th:text="*{id}"></span>
+                    <span class="account-number" th:text="*{accountNumber}"></span>
                     <span class="balance" blc:price="*{balance}"></span>
                 </div>
             </li>
