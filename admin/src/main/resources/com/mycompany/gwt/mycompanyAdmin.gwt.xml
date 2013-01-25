@@ -6,6 +6,7 @@
     <inherits name="org.broadleafcommerce.admin.customerCareModule" />
     <inherits name="org.broadleafcommerce.openadmin.userModule" />
     <inherits name="org.broadleafcommerce.cms.admin.contentManagementModule" />
+    <inherits name="com.broadleafcommerce.accountcredit.admin.accountCreditModule" />
 
     <inherits name="com.google.gwt.core.CompilerParameters"/>
     <inherits name="com.google.gwt.i18n.I18N"/>

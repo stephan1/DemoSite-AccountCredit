@@ -245,7 +245,7 @@
             <artifactId>broadleaf-common</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.broadleafcommerce</groupId>
+            <groupId>com.broadleafcommerce</groupId>
             <artifactId>broadleaf-account-credit</artifactId>
         </dependency>
         <dependency>

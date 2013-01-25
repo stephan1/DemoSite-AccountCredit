@@ -16,9 +16,10 @@
 
 package com.mycompany.controller.account;
 
-import com.broadleafcommerce.core.web.checkout.model.CreditAccountRequestDTO;
-import com.broadleafcommerce.core.web.checkout.model.GiftCardInfoForm;
-import com.broadleafcommerce.core.web.controller.BroadleafManageGiftCardController;
+import com.broadleafcommerce.accountcredit.core.web.checkout.model.CreditAccountRequestDTO;
+import com.broadleafcommerce.accountcredit.core.web.checkout.model.GiftCardInfoForm;
+import com.broadleafcommerce.accountcredit.core.web.controller.BroadleafManageGiftCardController;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

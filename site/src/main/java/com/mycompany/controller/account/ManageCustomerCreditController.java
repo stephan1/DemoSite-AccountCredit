@@ -16,8 +16,9 @@
 
 package com.mycompany.controller.account;
 
-import com.broadleafcommerce.core.web.checkout.model.CreditInfoForm;
-import com.broadleafcommerce.core.web.controller.BroadleafManageCustomerCreditController;
+import com.broadleafcommerce.accountcredit.core.web.checkout.model.CreditInfoForm;
+import com.broadleafcommerce.accountcredit.core.web.controller.BroadleafManageCustomerCreditController;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

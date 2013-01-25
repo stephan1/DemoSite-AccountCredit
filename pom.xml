@@ -238,7 +238,7 @@
                 <scope>test</scope>
             </dependency>
             <dependency>
-                <groupId>org.broadleafcommerce</groupId>
+                <groupId>com.broadleafcommerce</groupId>
                 <artifactId>broadleaf-account-credit</artifactId>
                 <version>1.0.0-SNAPSHOT</version>
                 <type>jar</type>
