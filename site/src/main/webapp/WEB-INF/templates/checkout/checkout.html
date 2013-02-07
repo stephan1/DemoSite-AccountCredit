@@ -55,16 +55,14 @@
         </div>
         
         <div th:substituteby="checkout/partials/orderInfoForm"></div>
-
-
-
+    
         <div class="cart_title">
             <span th:text="#{cart.step2}">Step 2</span> &raquo; <span th:text="#{cart.shippingInformation}">Shipping Information</span>
             <a th:if="${validShipping and cart.fulfillmentGroups != null and #lists.size(cart.fulfillmentGroups) == 1}" th:href="@{/checkout(edit-shipping='true')}">
                 <span th:text="#{cart.edit}">Edit</span>
             </a>
         </div>
-
+        
         <div class="clearfix"></div>
         
         <div th:unless="${validOrderInfo}" class="checkout_warning" >
@@ -106,7 +104,8 @@
                 </table>
              </div>    
          </div>
-
+    
+       
 
         <!--Account Credit and Gift Card-->
         <div class="cart_title"><span th:text="#{cart.step3}">Step 3</span> &raquo; <span th:text="#{cart.payment.options}">Payment Options</span></div>
